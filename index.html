@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+  <meta charset="UTF-8">
+  <title>MEMORRY</title>
+  <style>
+    body {
+      margin: 0;
+      background: pink;
+      font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    }
+
+    .tabs {
+      display: flex;
+      justify-content: center;
+      background: #fff0f5;
+      padding: 10px;
+      gap: 20px;
+    }
+
+    .tabs button {
+      background: white;
+      border: 1px solid #ccc;
+      padding: 10px 20px;
+      cursor: pointer;
+      border-radius: 10px;
+    }
+
+    .tabs button.active {
+      background: #ffb6c1;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 16px;
+      padding: 20px;
+    }
+
+    .gallery-item img,
+    .gallery-item video {
+      width: 100%;
+      height: auto;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+      cursor: pointer;
+    }
+
+    .popup {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.8);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 999;
+    }
+
+    .popup-content {
+      position: relative;
+      max-width: 90vw;
+      max-height: 90vh;
+      background: white;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+      overflow: auto;
+    }
+
+    .popup img,
+    .popup video {
+      max-width: 100%;
+      max-height: 80vh;
+      border: 8px solid white;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+      display: block;
+      margin: 0 auto;
+    }
+
+    .caption {
+      font-family: 'Times New Roman', Times, serif;
+      font-size: 18px;
+      text-align: center;
+      margin-top: 12px;
+    }
+
+    .close-btn {
+      position: absolute;
+      top: 8px;
+      right: 12px;
+      font-size: 24px;
+      color: #444;
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="tabs">
+    <button class="active" onclick="showTab('ki-niem')">Kỉ niệm</button>
+    <button onclick="showTab('ki-yeu')">Kỉ yếu</button>
+    <button onclick="showTab('em')">Em</button>
+    <button onclick="showTab('anh')">Anh</button>
+    <button onclick="showTab('videos')">Videos</button>
+  </div>
+
+  <div id="ki-niem" class="gallery">
+    <div class="gallery-item">
+      <img src="KI_NIEM/z6753442962403_6c4894e7bca9a80f4a28ca67ce9daba5.jpg" data-large="KI_NIEM/z6753442962403_6c4894e7bca9a80f4a28ca67ce9daba5.jpg" data-caption="Sinh nhật em nèe">
+    </div>
+    <div class="gallery-item">
+      <img src="KI_NIEM/z6754742953238_cfd4ee540b960f6dca442749079aa775.jpg" data-large="KI_NIEM/z6754742953238_cfd4ee540b960f6dca442749079aa775.jpg" data-caption="Cute xĩuuuuu">
+    </div>
+    <div class="gallery-item">
+      <img src="KI_NIEM/IMG_3962.JPG" data-large="KI_NIEM/IMG_3962.JPG" data-caption="Thanh xuân vườn trường">
+    </div>
+    <div class="gallery-item">
+      <img src="KI_NIEM/fsa.JPG" data-large="KI_NIEM/fsa.JPG" data-caption="Thanh xuân vườn trường">
+    </div>
+    <div class="gallery-item">
+      <img src="KI_NIEM/IMG_3963.JPG" data-large="KI_NIEM/IMG_3963.JPG" data-caption="Thanh xuân vườn trường">
+    </div>
+    <div class="gallery-item">
+      <img src="KI_NIEM/IMG_3964.JPG" data-large="KI_NIEM/IMG_3964.JPG" data-caption="Thanh xuân vườn trường">
+    </div>
+    <div class="gallery-item">
+      <img src="KI_NIEM/IMG_3965.JPG" data-large="KI_NIEM/IMG_3965.JPG" data-caption="Thanh xuân vườn trường">
+    </div>
+    <div class="gallery-item">
+      <img src="KI_NIEM/IMG_3966.JPG" data-large="KI_NIEM/IMG_3966.JPG" data-caption="Thanh xuân vườn trường">
+    </div>
+    <div class="gallery-item">
+      <img src="KI_NIEM/IMG_3967.JPG" data-large="KI_NIEM/IMG_3967.JPG" data-caption="Thanh xuân vườn trường">
+    </div>
+    <div class="gallery-item">
+      <img src="KI_NIEM/IMG_3968.JPG" data-large="KI_NIEM/IMG_3968.JPG" data-caption="Thanh xuân vườn trường">
+    </div>
+    <div class="gallery-item">
+      <img src="KI_NIEM/IMG_3969.JPG" data-large="KI_NIEM/IMG_3969.JPG" data-caption="Thanh xuân vườn trường">
+    </div>
+    <div class="gallery-item">
+      <img src="KI_NIEM/IMG_3970.JPG" data-large="KI_NIEM/IMG_3970.JPG" data-caption="Thanh xuân vườn trường">
+    </div>
+    <div class="gallery-item">
+      <img src="KI_NIEM/IMG_3971.JPG" data-large="KI_NIEM/IMG_3971.JPG" data-caption="Thanh xuân vườn trường">
+    </div>
+    <div class="gallery-item">
+      <img src="KI_NIEM/IMG_3972.JPG" data-large="KI_NIEM/IMG_3972.JPG" data-caption="Thanh xuân vườn trường">
+    </div>
+    <div class="gallery-item">
+      <img src="KI_NIEM/IMG_3973.JPG" data-large="KI_NIEM/IMG_3973.JPG" data-caption="Thanh xuân vườn trường">
+    </div>
+    <div class="gallery-item">
+      <img src="KI_NIEM/IMG_3974.JPG" data-large="KI_NIEM/IMG_3974.JPG" data-caption="Thanh xuân vườn trường">
+    </div>
+    <div class="gallery-item">
+      <img src="KI_NIEM/IMG_3975.JPG" data-large="KI_NIEM/IMG_3975.JPG" data-caption="Thanh xuân vườn trường">
+    </div>
+    <div class="gallery-item">
+      <img src="KI_NIEM/IMG_3976.JPG" data-large="KI_NIEM/PDPT3151.JPG" data-caption="Thanh xuân vườn trường">
+    </div>
+    <div class="gallery-item">
+      <img src="KI_NIEM/IMG_3977.JPG" data-large="KI_NIEM/IMG_3977.JPG" data-caption="Thanh xuân vườn trường">
+    </div>
+    <div class="gallery-item">
+      <img src="KI_NIEM/IMG_3978.JPG" data-large="KI_NIEM/IMG_3978.JPG" data-caption="Thanh xuân vườn trường">
+    </div>
+    <div class="gallery-item">
+      <img src="KI_NIEM/IMG_3979.JPG" data-large="KI_NIEM/IMG_3979.JPG" data-caption="Thanh xuân vườn trường">
+    </div>
+    <div class="gallery-item">
+      <img src="KI_NIEM/IMG_3980.JPG" data-large="KI_NIEM/IMG_3980.JPG" data-caption="Thanh xuân vườn trường">
+    </div>
+    <div class="gallery-item">
+      <img src="KI_NIEM/IMG_3981.JPG" data-large="KI_NIEM/IMG_3981.JPG" data-caption="Thanh xuân vườn trường">
+    </div>
+    <div class="gallery-item">
+      <img src="KI_NIEM/PDPT3029.JPG" data-large="KI_NIEM/PDPT3029.JPG" data-caption="Thanh xuân vườn trường">
+    </div>
+    <div class="gallery-item">
+      <img src="KI_NIEM/PDPT3034.JPG" data-large="KI_NIEM/PDPT3034.JPG" data-caption="Thanh xuân vườn trường">
+    </div>
+    <div class="gallery-item">
+      <img src="KI_NIEM/PDPT3036.JPG" data-large="KI_NIEM/PDPT3036.JPG" data-caption="Thanh xuân vườn trường">
+    </div>
+    <div class="gallery-item">
+      <img src="KI_NIEM/PDPT3037.JPG" data-large="KI_NIEM/PDPT3037.JPG" data-caption="Thanh xuân vườn trường">
+    </div>
+    <div class="gallery-item">
+      <img src="KI_NIEM/PDPT3038.JPG" data-large="KI_NIEM/PDPT3038.JPG" data-caption="Thanh xuân vườn trường">
+    </div>
+    <div class="gallery-item">
+      <img src="KI_NIEM/PDPT3039.JPG" data-large="KI_NIEM/PDPT3039.JPG" data-caption="Thanh xuân vườn trường">
+    </div>
+    <div class="gallery-item">
+      <img src="KI_NIEM/PDPT3044.JPG" data-large="KI_NIEM/PDPT3044.JPG" data-caption="Thanh xuân vườn trường">
+    </div>
+    <div class="gallery-item">
+      <img src="KI_NIEM/PDPT3046.JPG" data-large="KI_NIEM/PDPT3046.JPG" data-caption="Thanh xuân vườn trường">
+    </div>
+    <div class="gallery-item">
+      <img src="KI_NIEM/PDPT3048.JPG" data-large="KI_NIEM/PDPT3048.JPG" data-caption="Thanh xuân vườn trường">
+    </div>
+    <div class="gallery-item">
+      <img src="KI_NIEM/PDPT3050.JPG" data-large="KI_NIEM/PDPT3050.JPG" data-caption="Thanh xuân vườn trường">
+    </div>
+    <div class="gallery-item">
+      <img src="KI_NIEM/PDPT3051.JPG" data-large="KI_NIEM/PDPT3051.JPG" data-caption="Thanh xuân vườn trường">
+    </div>
+    <div class="gallery-item">
+      <img src="KI_NIEM/PDPT3052.JPG" data-large="KI_NIEM/PDPT3052.JPG" data-caption="Thanh xuân vườn trường">
+    </div>
+    <div class="gallery-item">
+      <img src="KI_NIEM/PDPT3057.JPG" data-large="KI_NIEM/PDPT3057.JPG" data-caption="Thanh xuân vườn trường">
+    </div>
+    <div class="gallery-item">
+      <img src="KI_NIEM/PDPT3069.JPG" data-large="KI_NIEM/PDPT3069.JPG" data-caption="Thanh xuân vườn trường">
+    </div>
+    <div class="gallery-item">
+      <img src="KI_NIEM/PDPT3074.JPG" data-large="KI_NIEM/PDPT3074.JPG" data-caption="Thanh xuân vườn trường">
+    </div>
+    <div class="gallery-item">
+      <img src="KI_NIEM/PDPT3075.JPG" data-large="KI_NIEM/PDPT3075.JPG" data-caption="Thanh xuân vườn trường">
+    </div>
+    <div class="gallery-item">
+      <img src="KI_NIEM/PDPT3076.JPG" data-large="KI_NIEM/PDPT3076.JPG" data-caption="Thanh xuân vườn trường">
+    </div>
+    <div class="gallery-item">
+      <img src="KI_NIEM/PDPT3078.JPG" data-large="KI_NIEM/PDPT3078.JPG" data-caption="Thanh xuân vườn trường">
+    </div>
+    <div class="gallery-item">
+      <img src="KI_NIEM/PDPT3081.JPG" data-large="KI_NIEM/PDPT3081.JPG" data-caption="Thanh xuân vườn trường">
+    </div>
+    <div class="gallery-item">
+      <img src="KI_NIEM/PDPT3082.JPG" data-large="KI_NIEM/PDPT3082.JPG" data-caption="Thanh xuân vườn trường">
+    </div>
+    <div class="gallery-item">
+      <img src="KI_NIEM/PDPT3084.JPG" data-large="KI_NIEM/PDPT3084.JPG" data-caption="Thanh xuân vườn trường">
+    </div>
+    <div class="gallery-item">
+      <img src="KI_NIEM/PDPT3091.JPG" data-large="KI_NIEM/PDPT3091.JPG" data-caption="Thanh xuân vườn trường">
+    </div>
+    <div class="gallery-item">
+      <img src="KI_NIEM/PDPT3099.JPG" data-large="KI_NIEM/PDPT3099.JPG" data-caption="Thanh xuân vườn trường">
+    </div>
+    <div class="gallery-item">
+      <img src="KI_NIEM/PDPT3112.JPG" data-large="KI_NIEM/PDPT3112.JPG" data-caption="Thanh xuân vườn trường">
+    </div>
+    <div class="gallery-item">
+      <img src="KI_NIEM/PDPT3116.JPG" data-large="KI_NIEM/PDPT3116.JPG" data-caption="Thanh xuân vườn trường">
+    </div>
+    <div class="gallery-item">
+      <img src="KI_NIEM/PDPT3121.JPG" data-large="KI_NIEM/PDPT3121.JPG" data-caption="Thanh xuân vườn trường">
+    </div>
+    <div class="gallery-item">
+      <img src="KI_NIEM/PDPT3131.JPG" data-large="KI_NIEM/PDPT3131.JPG" data-caption="Thanh xuân vườn trường">
+    </div>
+    <div class="gallery-item">
+      <img src="KI_NIEM/PDPT3082.JPG" data-large="KI_NIEM/PDPT3082.JPG" data-caption="Thanh xuân vườn trường">
+    </div>
+    <div class="gallery-item">
+      <img src="KI_NIEM/PDPT3084.JPG" data-large="KI_NIEM/PDPT3084.JPG" data-caption="Thanh xuân vườn trường">
+    </div>
+    <div class="gallery-item">
+      <img src="KI_NIEM/PDPT3091.JPG" data-large="KI_NIEM/PDPT3091.JPG" data-caption="Thanh xuân vườn trường">
+    </div>
+    <div class="gallery-item">
+      <img src="KI_NIEM/PDPT3099.JPG" data-large="KI_NIEM/PDPT3099.JPG" data-caption="Thanh xuân vườn trường">
+    </div>
+    <div class="gallery-item">
+      <img src="KI_NIEM/PDPT3112.JPG" data-large="KI_NIEM/PDPT3112.JPG" data-caption="Thanh xuân vườn trường">
+    </div>
+    <div class="gallery-item">
+      <img src="KI_NIEM/PDPT3116.JPG" data-large="KI_NIEM/PDPT3116.JPG" data-caption="Thanh xuân vườn trường">
+    </div>
+    <div class="gallery-item">
+      <img src="KI_NIEM/PDPT3121.JPG" data-large="KI_NIEM/PDPT3121.JPG" data-caption="Thanh xuân vườn trường">
+    </div>
+    <div class="gallery-item">
+      <img src="KI_NIEM/PDPT3131.JPG" data-large="KI_NIEM/PDPT3131.JPG" data-caption="Thanh xuân vườn trường">
+    </div>
+  </div>
+
+  <div id="ki-yeu" class="gallery" style="display:none">
+    <div class="gallery-item">
+      <img src="KI_YEU/148A2193.jpg" data-large="KI_YEU/148A2193.jpg" data-caption="Kỉ yếu">
+    </div>
+    <div class="gallery-item">
+      <img src="KI_YEU/148A2199.jpg" data-large="KI_YEU/148A2199.jpg" data-caption="Kỉ yếu">
+    </div>
+    <div class="gallery-item">
+      <img src="KI_YEU/148A2206.jpg" data-large="KI_YEU/148A2206.jpg" data-caption="Kỉ yếu">
+    </div>
+    <div class="gallery-item">
+      <img src="KI_YEU/148A2209.jpg" data-large="KI_YEU/148A2209.jpg" data-caption="Kỉ yếu">
+    </div>
+    <div class="gallery-item">
+      <img src="KI_YEU/z6753441371921_4a22066cb3ebfc25f9f313586f242622.jpg"
+        data-large="KI_YEU/z6753441371921_4a22066cb3ebfc25f9f313586f242622.jpg" data-caption="Kỉ yếu">
+    </div>
+    <div class="gallery-item">
+      <img src="KI_YEU/z6753441372020_5325f762dc57a70444aff347da37a0d8.jpg"
+        data-large="KI_YEU/z6753441372020_5325f762dc57a70444aff347da37a0d8.jpg" data-caption="Kỉ yếu">
+    </div>
+    <div class="gallery-item">
+      <img src="KI_YEU/z6753441372136_216ff8e2cf5724d0ec80444dc09174dc.jpg"
+        data-large="KI_YEU/z6753441372136_216ff8e2cf5724d0ec80444dc09174dc.jpg" data-caption="Kỉ yếu">
+    </div>
+    <div class="gallery-item">
+      <img src="KI_YEU/z6753441374247_9fa93bda6e2005b9f1bf0aaad14372bc.jpg"
+        data-large="KI_YEU/z6753441374247_9fa93bda6e2005b9f1bf0aaad14372bc.jpg" data-caption="Kỉ yếu">
+    </div>
+    <div class="gallery-item">
+      <img src="KI_YEU/z6753441374347_5d55aeac66cce9208f829d6e7b000ff6.jpg"
+        data-large="KI_YEU/z6753441374347_5d55aeac66cce9208f829d6e7b000ff6.jpg" data-caption="Kỉ yếu">
+    </div>
+    <div class="gallery-item">
+      <img src="KI_YEU/z6753441379961_86efe94d38d1fee8c34a670582cded5c.jpg"
+        data-large="KI_YEU/z6753441379961_86efe94d38d1fee8c34a670582cded5c.jpg" data-caption="Kỉ yếu">
+    </div>
+    <div class="gallery-item">
+      <img src="KI_YEU/z6753441380297_62724f644b4b5b4ad529f1ccfb346d80.jpg"
+        data-large="KI_YEU/z6753441380297_62724f644b4b5b4ad529f1ccfb346d80.jpg" data-caption="Kỉ yếu">
+    </div>
+    <div class="gallery-item">
+      <img src="KI_YEU/z6753441382038_b63eeb1b167c34775c9eb7e8829e9fba.jpg"
+        data-large="KI_YEU/z6753441382038_b63eeb1b167c34775c9eb7e8829e9fba.jpg" data-caption="Kỉ yếu">
+    </div>
+    <div class="gallery-item">
+      <img src="KI_YEU/z6753441382266_851e58146c5923c03e946419334a5659.jpg"
+        data-large="KI_YEU/z6753441382266_851e58146c5923c03e946419334a5659.jpg" data-caption="Kỉ yếu">
+    </div>
+    <div class="gallery-item">
+      <img src="KI_YEU/z6753441385818_15c547bf053ff512b849349e5a442f5d.jpg"
+        data-large="KI_YEU/z6753441385818_15c547bf053ff512b849349e5a442f5d.jpg" data-caption="Kỉ yếu">
+    </div>
+    <div class="gallery-item">
+      <img src="KI_YEU/z6753441386289_fb141094459b9e0dc5c9278b5f7decdd.jpg"
+        data-large="KI_YEU/z6753441386289_fb141094459b9e0dc5c9278b5f7decdd.jpg" data-caption="Kỉ yếu">
+    </div>
+    <div class="gallery-item">
+      <img src="KI_YEU/z6753441390593_bcb0b53dea6f5ea9b946ac693c07e4cd.jpg"
+        data-large="KI_YEU/z6753441390593_bcb0b53dea6f5ea9b946ac693c07e4cd.jpg" data-caption="Kỉ yếu">
+    </div>
+    <div class="gallery-item">
+      <img src="KI_YEU/z6753441390712_fb272cddede263d22b4199ba95cfff67.jpg"
+        data-large="KI_YEU/z6753441390712_fb272cddede263d22b4199ba95cfff67.jpg" data-caption="Kỉ yếu">
+    </div>
+    <div class="gallery-item">
+      <img src="KI_YEU/z6753441395216_6f1cfcce5153b2c7dac58d8a720c8bdf.jpg"
+        data-large="KI_YEU/z6753441395216_6f1cfcce5153b2c7dac58d8a720c8bdf.jpg" data-caption="Kỉ yếu">
+    </div>
+    <div class="gallery-item">
+      <img src="KI_YEU/z6753441401528_f4e59f071fce9b4ca91d98f870903053.jpg"
+        data-large="KI_YEU/z6753441401528_f4e59f071fce9b4ca91d98f870903053.jpg" data-caption="Kỉ yếu">
+    </div>
+    <div class="gallery-item">
+      <img src="KI_YEU/z6753441403095_25cb8f39a913c44381954052933535b1.jpg"
+        data-large="KI_YEU/z6753441403095_25cb8f39a913c44381954052933535b1.jpg" data-caption="Kỉ yếu">
+    </div>
+    <div class="gallery-item">
+      <img src="KI_YEU/z6753441404269_c3d6e07430f4fe04912b19b982dc4257.jpg"
+        data-large="KI_YEU/z6753441404269_c3d6e07430f4fe04912b19b982dc4257.jpg" data-caption="Kỉ yếu">
+    </div>
+    <div class="gallery-item">
+      <img src="KI_YEU/z6753441405441_5707107c506a8ad98ee937868db7844d.jpg"
+        data-large="KI_YEU/z6753441405441_5707107c506a8ad98ee937868db7844d.jpg" data-caption="Kỉ yếu">
+    </div>
+    <div class="gallery-item">
+      <img src="KI_YEU/z6753441405441_5707107c506a8ad98ee937868db7844d.jpg"
+        data-large="KI_YEU/z6753441405441_5707107c506a8ad98ee937868db7844d.jpg" data-caption="Kỉ yếu">
+    </div>
+    <div class="gallery-item">
+      <img src="KI_YEU/z6753441415212_f045366cc7d5e71b60909b2846cf548c.jpg"
+        data-large="KI_YEU/z6753441415212_f045366cc7d5e71b60909b2846cf548c.jpg" data-caption="Kỉ yếu">
+    </div>
+  </div>
+
+  <div id="videos" class="gallery" style="display:none">
+    <div class="gallery-item">
+      <video class="thumbnail-video" muted onclick="openPopup(this.querySelector('source').src, '', true)">
+        <source src="VIDEO/6753398025130.mp4" type="video/mp4">
+      </video>
+    </div>
+    <div class="gallery-item">
+      <video class="thumbnail-video" muted onclick="openPopup(this.querySelector('source').src, '', true)">
+        <source src="VIDEO/6753398087938.mp4" type="video/mp4">
+      </video>
+    </div>
+    <div class="gallery-item">
+      <video class="thumbnail-video" muted onclick="openPopup(this.querySelector('source').src, '', true)">
+        <source src="VIDEO/6753398117307.mp4" type="video/mp4">
+      </video>
+    </div>
+    <div class="gallery-item">
+      <video class="thumbnail-video" muted onclick="openPopup(this.querySelector('source').src, '', true)">
+        <source src="VIDEO/6753398143541.mp4" type="video/mp4">
+      </video>
+    </div>
+  </div>
+  <div id="em" class="gallery" style="display:none">
+    <div class="gallery-item">
+      <img src="EM/Locket_1731427017076_9.jpg" data-large="EM/Locket_1731427017076_9.jpg">
+    </div>
+    <div class="gallery-item">
+      <img src="EM/Messenger_creation_0D186C41-EFD0-437F-A2F7-9877A030D176.jpeg"
+        data-large="EM/Messenger_creation_0D186C41-EFD0-437F-A2F7-9877A030D176.jpeg">
+    </div>
+    <div class="gallery-item">
+      <img src="EM/Messenger_creation_0E64098D-0513-413F-B87A-B9628E80EAAE.jpeg"
+        data-large="EM/Messenger_creation_0E64098D-0513-413F-B87A-B9628E80EAAE.jpeg">
+    </div>
+    <div class="gallery-item">
+      <img src="EM/Messenger_creation_1D218CFA-74D4-4C04-B34A-BC5ABA8D91F0.jpeg"
+        data-large="EM/Messenger_creation_1D218CFA-74D4-4C04-B34A-BC5ABA8D91F0.jpeg">
+    </div>
+    <div class="gallery-item">
+      <img src="EM/Messenger_creation_6CD3CE3F-BFC2-453D-91FB-B3EECFF7CD31.jpeg"
+        data-large="EM/Messenger_creation_6CD3CE3F-BFC2-453D-91FB-B3EECFF7CD31.jpeg">
+    </div>
+    <div class="gallery-item">
+      <img src="EM/Messenger_creation_7A633B53-13D3-4E28-AC9F-F57239FB60CD.jpeg"
+        data-large="EM/Messenger_creation_7A633B53-13D3-4E28-AC9F-F57239FB60CD.jpeg">
+    </div>
+    <div class="gallery-item">
+      <img src="EM/Messenger_creation_23E3B8A5-879C-43A1-8131-EA75E2283E3E.jpeg"
+        data-large="EM/Messenger_creation_23E3B8A5-879C-43A1-8131-EA75E2283E3E.jpeg">
+    </div>
+    <div class="gallery-item">
+      <img src="EM/Messenger_creation_692FDBC2-1127-4167-B5FE-721917AC7F3B.png"
+        data-large="EM/Messenger_creation_692FDBC2-1127-4167-B5FE-721917AC7F3B.png">
+    </div>
+    <div class="gallery-item">
+      <img src="EM/Messenger_creation_9A84B75D-70AF-4438-93E1-DE7902D5DF2E.jpeg"
+        data-large="EM/Messenger_creation_9A84B75D-70AF-4438-93E1-DE7902D5DF2E.jpeg">
+    </div>
+    <div class="gallery-item">
+      <img src="EM/Messenger_creation_32D4061A-2045-45A8-BC77-BF95D00F674E.jpeg"
+        data-large="EM/Messenger_creation_32D4061A-2045-45A8-BC77-BF95D00F674E.jpeg">
+    </div>
+    <div class="gallery-item">
+      <img src="EM/Messenger_creation_48B08DE8-65C8-4750-8304-D423A6E92CE7.jpeg"
+        data-large="EM/Messenger_creation_48B08DE8-65C8-4750-8304-D423A6E92CE7.jpeg">
+    </div>
+    <div class="gallery-item">
+      <img src="EM/Messenger_creation_543FF245-F87D-464B-977D-F483F36B3E96.jpeg"
+        data-large="EM/Messenger_creation_543FF245-F87D-464B-977D-F483F36B3E96.jpeg">
+    </div>
+    <div class="gallery-item">
+      <img src="EM/Messenger_creation_912E01AA-191A-45AA-8CBE-7D21EE0DF0FB.jpeg"
+        data-large="EM/Messenger_creation_912E01AA-191A-45AA-8CBE-7D21EE0DF0FB.jpeg">
+    </div>
+    <div class="gallery-item">
+      <img src="EM/Messenger_creation_001793AE-33DD-45BB-8F4B-2186DEFFDC8D.jpeg"
+        data-large="EM/Messenger_creation_001793AE-33DD-45BB-8F4B-2186DEFFDC8D.jpeg">
+    </div>
+    <div class="gallery-item">
+      <img src="EM/Messenger_creation_6871D272-F347-4AB4-B701-E2813B463591.jpeg"
+        data-large="EM/Messenger_creation_6871D272-F347-4AB4-B701-E2813B463591.jpeg">
+    </div>
+    <div class="gallery-item">
+      <img src="EM/Messenger_creation_8511AB8B-D0D4-489C-A6C0-18EB469F17C3.jpeg"
+        data-large="EM/Messenger_creation_8511AB8B-D0D4-489C-A6C0-18EB469F17C3.jpeg">
+    </div>
+    <div class="gallery-item">
+      <img src="EM/Messenger_creation_AE58D883-4B5B-49DD-B068-86AA4CCF6BE7.jpeg"
+        data-large="EM/Messenger_creation_AE58D883-4B5B-49DD-B068-86AA4CCF6BE7.jpeg">
+    </div>
+    <div class="gallery-item">
+      <img src="EM/Messenger_creation_A9BCB47F-801D-4AAC-8CD4-FE1AC3225D0A.jpeg"
+        data-large="EM/Messenger_creation_A9BCB47F-801D-4AAC-8CD4-FE1AC3225D0A.jpeg">
+    </div>
+    <div class="gallery-item">
+      <img src="EM/Messenger_creation_C839189D-CE6B-4E3E-80E3-2AB0AE6E5F8E.jpeg"
+        data-large="EEM/Messenger_creation_C839189D-CE6B-4E3E-80E3-2AB0AE6E5F8E.jpeg">
+    </div>
+    <div class="gallery-item">
+      <img src="EM/Messenger_creation_CECE8427-493B-4279-AE71-2C96201FEE15.jpeg"
+        data-large="EM/Messenger_creation_CECE8427-493B-4279-AE71-2C96201FEE15.jpeg">
+    </div>
+    <div class="gallery-item">
+      <img src="EM/Messenger_creation_D3DC04FC-D0BC-4DC8-BFC5-E0E0511160FB.png" data-large="EM/Messenger_creation_D3DC04FC-D0BC-4DC8-BFC5-E0E0511160FB.png">
+    </div>
+    <div class="gallery-item">
+      <img src="EM/Messenger_creation_DB22CCE5-037A-4B7A-8A56-B33AA2C31F74.jpeg" data-large="EM/Messenger_creation_DB22CCE5-037A-4B7A-8A56-B33AA2C31F74.jpeg">
+    </div>
+    <div class="gallery-item">
+      <img src="EM/Messenger_creation_DBBB2247-A7C6-411D-B3A3-FFE7981113C6.jpeg" data-large="EM/Messenger_creation_DBBB2247-A7C6-411D-B3A3-FFE7981113C6.jpeg">
+    </div>
+    <div class="gallery-item">
+      <img src="EM/Messenger_creation_F7A103A0-2C92-410D-AFD4-4F12202A9D86.jpeg" data-large="EM/Messenger_creation_F7A103A0-2C92-410D-AFD4-4F12202A9D86.jpeg">
+    </div>
+    <div class="gallery-item">
+      <img src="EM/Messenger_creation_F1333A4B-7C8F-47DF-BC12-5E3C98CA4C7C.jpeg" data-large="EM/Messenger_creation_F1333A4B-7C8F-47DF-BC12-5E3C98CA4C7C.jpeg">
+    </div>
+    <div class="gallery-item">
+      <img src="EM/Messenger_creation_F70056A4-46D6-47EE-93CD-C168647D8376.jpeg" data-large="EM/Messenger_creation_F70056A4-46D6-47EE-93CD-C168647D8376.jpeg">
+    </div>
+    <div class="gallery-item">
+      <img src="EM/Messenger_creation_FB830885-FD96-4214-BF10-431B545400B0.jpeg" data-large="EM/Messenger_creation_FB830885-FD96-4214-BF10-431B545400B0.jpeg">
+    </div>
+    <div class="gallery-item">
+      <img src="EM/z6753441333268_3b9695fcc2bfdb835eaf47ba24eaa66b.jpg" data-large="EM/z6753441333268_3b9695fcc2bfdb835eaf47ba24eaa66b.jpg">
+    </div>
+    <div class="gallery-item">
+      <img src="EM/z6753441338397_904dc90c813aeb260293d4057b4edadc.jpg" data-large="EM/z6753441338397_904dc90c813aeb260293d4057b4edadc.jpg">
+    </div>
+    <div class="gallery-item">
+      <img src="EM/z6753441338525_d8b3b3f93a9cd4a1c05155cb18511bcd.jpg" data-large="EM/z6753441338525_d8b3b3f93a9cd4a1c05155cb18511bcd.jpg">
+    </div>
+    <div class="gallery-item">
+      <img src="EM/z6753441354914_7440d0ce5c70ef8f6a8dcdd3ff878348.jpg" data-large="EM/z6753441354914_7440d0ce5c70ef8f6a8dcdd3ff878348.jpg">
+    </div>
+    <div class="gallery-item">
+      <img src="EM/z6753441357366_b5e67405bda4f7f23ddfe5bf7c450b81.jpg" data-large="EM/z6753441357366_b5e67405bda4f7f23ddfe5bf7c450b81.jpg">
+    </div>
+    <div class="gallery-item">
+      <img src="EM/z6753441359268_82375d23936ed89006145fee4584f249.jpg" data-large="EM/z6753441359268_82375d23936ed89006145fee4584f249.jpg">
+    </div>
+    <div class="gallery-item">
+      <img src="EM/z6753441363194_8d6fec763a9587f9aa18cb94551473e8.jpg" data-large="EM/z6753441363194_8d6fec763a9587f9aa18cb94551473e8.jpg">
+    </div>
+    <div class="gallery-item">
+      <img src="EM/z6753442934770_93fa1981b1aeda56dbce5f22c7c4d0a5.jpg" data-large="EM/z6753442934770_93fa1981b1aeda56dbce5f22c7c4d0a5.jpg">
+    </div>
+    <div class="gallery-item">
+      <img src="EM/z6753442941635_a8a14ff161837e7fbd3e064fcb5d24d6.jpg" data-large="EM/z6753442941635_a8a14ff161837e7fbd3e064fcb5d24d6.jpg">
+    </div>
+    <div class="gallery-item">
+      <img src="EM/z6753442942120_40acb216601b7b347d4e8c23c097cfbc.jpg" data-large="EM/z6753442942120_40acb216601b7b347d4e8c23c097cfbc.jpg">
+    </div>
+    <div class="gallery-item">
+      <img src="EM/z6753442943160_535e110f5845765cd1b8681af9f4fe5c.jpg" data-large="EM/z6753442943160_535e110f5845765cd1b8681af9f4fe5c.jpg">
+    </div>
+    <div class="gallery-item">
+      <img src="EM/z6753442946089_6d2eb33e245115759e74da4e10a3e596.jpg" data-large="EM/z6753442946089_6d2eb33e245115759e74da4e10a3e596.jpg">
+    </div>
+    <div class="gallery-item">
+      <img src="EM/z6753442947670_cd9cdf15bcddbc287cc9dfc442a67198.jpg" data-large="EM/z6753442947670_cd9cdf15bcddbc287cc9dfc442a67198.jpg">
+    </div>
+    <div class="gallery-item">
+      <img src="EM/z6753442949708_b1d3c69e6ff955c6727210da3f1a668c.jpg" data-large="EM/z6753442949708_b1d3c69e6ff955c6727210da3f1a668c.jpg">
+    </div>
+    <div class="gallery-item">
+      <img src="EM/z6753442956570_db9d654673cc4cf12e9aad015f64a495.jpg" data-large="EM/z6753442956570_db9d654673cc4cf12e9aad015f64a495.jpg">
+    </div>
+    <div class="gallery-item">
+      <img src="EM/z6753442953679_c3a2d42fd254fe8a9de5324d653d8e0c.jpg" data-large="EM/z6753442953679_c3a2d42fd254fe8a9de5324d653d8e0c.jpg">
+    </div>
+    <div class="gallery-item">
+      <img src="EM/z6753442956708_019c5741eb4ee76db2ede19589f06d8c.jpg" data-large="EM/z6753442956708_019c5741eb4ee76db2ede19589f06d8c.jpg">
+    </div>
+    <div class="gallery-item">
+      <img src="EM/z6753442956821_35210112e9c80b0c10e985916fd66457.jpg" data-large="EM/z6753442956821_35210112e9c80b0c10e985916fd66457.jpg">
+    </div>
+    <div class="gallery-item">
+      <img src="EM/z6753442963261_3306fc96adcd93dee32ff63e573dc719.jpg" data-large="EM/z6753442963261_3306fc96adcd93dee32ff63e573dc719.jpg">
+    </div>
+    <div class="gallery-item">
+      <img src="EM/z6753442966926_20bee78dec71521aa520f2e931fd6a28.jpg" data-large="EM/z6753442966926_20bee78dec71521aa520f2e931fd6a28.jpg">
+    </div>
+    <div class="gallery-item">
+      <img src="EM/z6753442970213_09d97513fb622cb5bab620b24423391a.jpg" data-large="EM/z6753442970213_09d97513fb622cb5bab620b24423391a.jpg">
+    </div>
+  </div>
+  <div id="anh" class="gallery" style="display:none">
+    <div class="gallery-item">
+      <img src="ANH/z6754739279311_01ad232795866f0157446ff8ff0defe3.jpg" data-large="ANH/z6754739279311_01ad232795866f0157446ff8ff0defe3.jpg">
+    </div>
+    <div class="gallery-item">
+      <img src="ANH/z6754739307642_2e07f7f2c7bf388eaade3c08e70626dd.jpg" data-large="ANH/z6754739307642_2e07f7f2c7bf388eaade3c08e70626dd.jpg">
+    </div>
+    <div class="gallery-item">
+      <img src="ANH/z6754742953238_cfd4ee540b960f6dca442749079aa775.jpg" data-large="ANH/z6754742953238_cfd4ee540b960f6dca442749079aa775.jpg">
+    </div>
+    <div class="gallery-item">
+      <img src="ANH/z6754742954936_929b868775d5c74b614426a16eafd519.jpg" data-large="ANH/z6754742954936_929b868775d5c74b614426a16eafd519.jpg">
+    </div>
+    <div class="gallery-item">
+      <img src="ANH/z6754742960989_239a4f581589469309a22860c32d5592.jpg" data-large="ANH/z6754742960989_239a4f581589469309a22860c32d5592.jpg">
+    </div>
+    <div class="gallery-item">
+      <img src="ANH/z6754742964373_7b593f44cfd7f1f05632fc9da849155e.jpg" data-large="ANH/z6754742964373_7b593f44cfd7f1f05632fc9da849155e.jpg">
+    </div>
+    <div class="gallery-item">
+      <img src="ANH/z6754743032783_39d0fb96648efcd019775c449201b551.jpg" data-large="ANH/z6754743032783_39d0fb96648efcd019775c449201b551.jpg">
+    </div>
+    <div class="gallery-item">
+      <img src="ANH/z6754743042894_9958570d3b1208a00f87beea4ecedef0.jpg" data-large="ANH/z6754743042894_9958570d3b1208a00f87beea4ecedef0.jpg">
+    </div>
+    <div class="gallery-item">
+      <img src="ANH/148A1262.jpg" data-large="ANH/148A1262.jpg">
+    </div>
+    <div class="gallery-item">
+      <img src="ANH/148A2162.jpg" data-large="ANH/148A2162.jpg">
+    </div>
+    <div class="gallery-item">
+      <img src="ANH/148A2164.jpg" data-large="ANH/148A2164.jpg">
+    </div>
+    <div class="gallery-item">
+      <img src="ANH/148A2168.jpg" data-large="ANH/148A2168.jpg">
+    </div>
+    <div class="gallery-item">
+      <img src="ANH/148A2172.jpg" data-large="ANH/148A2172.jpg">
+    </div>
+    <div class="gallery-item">
+      <img src="ANH/148A2176.jpg" data-large="ANH/148A2176.jpg">
+    </div>
+    <div class="gallery-item">
+      <img src="ANH/148A2611.jpg" data-large="ANH/148A2611.jpg">
+    </div>
+    <div class="gallery-item">
+      <img src="ANH/148A2616.jpg" data-large="ANH/148A2616.jpg">
+    </div>
+    <div class="gallery-item">
+      <img src="ANH/148A2866.jpg" data-large="ANH/148A2866.jpg">
+    </div>
+    <div class="gallery-item">
+      <img src="ANH/148A2915.jpg" data-large="ANH/148A2915.jpg">
+    </div>
+    <div class="gallery-item">
+      <img src="ANH/148A2917.jpg" data-large="ANH/148A2917.jpg">
+    </div>
+    <div class="gallery-item">
+      <img src="ANH/148A2919.jpg" data-large="ANH/148A2919.jpg">
+    </div>
+    <div class="gallery-item">
+      <img src="ANH/148A2922.jpg" data-large="ANH/148A2922.jpg">
+    </div>
+    <div class="gallery-item">
+      <img src="ANH/148A2925.jpg" data-large="ANH/148A2925.jpg">
+    </div>
+    <div class="gallery-item">
+      <img src="ANH/148A2927.jpg" data-large="ANH/148A2927.jpg">
+    </div>
+  </div>
+
+  <div class="popup" id="popup">
+    <div class="popup-content">
+      <span class="close-btn" onclick="closePopup()">&times;</span>
+      <img id="popup-img" style="display:none">
+      <video id="popup-video" style="display:none" controls></video>
+      <div class="caption" id="popup-caption"></div>
+    </div>
+  </div>
+
+
+  <script>
+    function showTab(id) {
+      document.querySelectorAll('.tabs button').forEach(btn => btn.classList.remove('active'));
+      document.querySelectorAll('.gallery').forEach(g => g.style.display = 'none');
+      document.getElementById(id).style.display = 'grid';
+      event.target.classList.add('active');
+    }
+
+    document.querySelectorAll('.gallery-item img').forEach(img => {
+      img.addEventListener('click', () => {
+        openPopup(img.dataset.large, img.dataset.caption, false);
+      });
+    });
+
+    function openPopup(src, caption, isVideo) {
+      document.getElementById('popup').style.display = 'flex';
+      const img = document.getElementById('popup-img');
+      const video = document.getElementById('popup-video');
+
+      if (isVideo) {
+        img.style.display = 'none';
+        video.src = src;
+        video.style.display = 'block';
+      } else {
+        video.style.display = 'none';
+        img.src = src;
+        img.style.display = 'block';
+      }
+
+      document.getElementById('popup-caption').innerText = caption || '';
+    }
+
+    function closePopup() {
+      document.getElementById('popup').style.display = 'none';
+      document.getElementById('popup-video').pause();
+    }
+  </script>
+</body>
+
+</html>
